@@ -22,8 +22,8 @@ const LOCAL_STORAGE_KEY = "asd_tesseramento_config";
 
 export default function App() {
   const [config, setConfig] = useState<SubmissionConfig>({
-    appsScriptUrl: "",
-    useSimulation: true,
+    appsScriptUrl: import.meta.env.VITE_APPS_SCRIPT_URL || "",
+    useSimulation: !import.meta.env.VITE_APPS_SCRIPT_URL,
   });
   const [showAdmin, setShowAdmin] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -38,6 +38,11 @@ export default function App() {
       } catch (e) {
         console.error("Errore caricamento configurazione:", e);
       }
+    } else if (import.meta.env.VITE_APPS_SCRIPT_URL) {
+      setConfig({
+        appsScriptUrl: import.meta.env.VITE_APPS_SCRIPT_URL,
+        useSimulation: false,
+      });
     }
   }, []);
 
