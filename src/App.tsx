@@ -16,6 +16,8 @@ import {
 import RegistrationForm from "./components/RegistrationForm";
 import AdminPanel from "./components/AdminPanel";
 import SuccessScreen from "./components/SuccessScreen";
+import AdminPasswordForm from "./components/AdminPasswordForm";
+import cynthiaLogo from "./assets/images/cynthia_logo_1782246937952.jpg";
 import { SubmissionConfig } from "./types";
 
 const LOCAL_STORAGE_KEY = "asd_tesseramento_config";
@@ -26,6 +28,7 @@ export default function App() {
     useSimulation: !import.meta.env.VITE_APPS_SCRIPT_URL,
   });
   const [showAdmin, setShowAdmin] = useState(false);
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Carica la configurazione salvata all'avvio
@@ -60,7 +63,7 @@ export default function App() {
       {/* Top Banner Informativo per l'amministratore dell'ASD */}
       <div className="bg-slate-900 border-b border-slate-800 px-4 py-2.5 text-xs text-slate-300 flex flex-wrap items-center justify-between gap-3 shadow-sm">
         <div className="flex items-center gap-2">
-          <Database className="w-4 h-4 text-emerald-400" />
+          <Database className="w-4 h-4 text-cynthia-gold-500" />
           <span>
             {config.useSimulation ? (
               <span className="flex items-center gap-1.5 font-semibold text-amber-400">
@@ -68,8 +71,8 @@ export default function App() {
                 Modalità Simulazione Attiva (Test rapido senza Google Sheets)
               </span>
             ) : (
-              <span className="flex items-center gap-1.5 font-semibold text-emerald-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span className="flex items-center gap-1.5 font-semibold text-cynthia-gold-500">
+                <span className="w-2 h-2 rounded-full bg-cynthia-gold-500 animate-pulse" />
                 Integrazione Google Sheets Attiva
               </span>
             )}
@@ -79,7 +82,14 @@ export default function App() {
         <div className="flex items-center gap-2.5">
           <span className="text-slate-400 hidden sm:inline">Sei l'amministratore dell'ASD?</span>
           <button
-            onClick={() => setShowAdmin(!showAdmin)}
+            onClick={() => {
+              if (showAdmin) {
+                setShowAdmin(false);
+                setIsAdminAuthenticated(false);
+              } else {
+                setShowAdmin(true);
+              }
+            }}
             className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-800 hover:bg-slate-750 text-white rounded-lg font-semibold transition-all border border-slate-700 cursor-pointer text-[11px]"
             title="Configura l'integrazione con Google Sheets e Drive"
           >
@@ -92,13 +102,18 @@ export default function App() {
       {/* Header principale della ASD */}
       <header className="bg-white border-b border-slate-200/60 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3 max-w-7xl mx-auto w-full">
-          {/* Logo simulato */}
-          <div className="w-9 h-9 bg-slate-950 rounded-lg flex items-center justify-center text-white font-bold text-sm border border-slate-900 select-none shrink-0 font-display">
-            FC
+          {/* Logo Cynthia 1920 */}
+          <div className="w-9 h-9 flex items-center justify-center select-none shrink-0">
+            <img 
+              src={cynthiaLogo} 
+              alt="Cynthia 1920 Logo" 
+              className="w-9 h-9 object-contain" 
+              referrerPolicy="no-referrer"
+            />
           </div>
           <div>
             <h1 className="text-sm font-bold font-display text-slate-900 tracking-tight leading-tight">
-              A.S.D. Football Club 2026
+              S.S.D. Cynthia 1920
             </h1>
             <p className="text-[9px] md:text-[10px] font-mono text-slate-400 uppercase tracking-wider">
               Segreteria Digitale Portale Tesseramento
@@ -110,11 +125,21 @@ export default function App() {
       {/* Area Contenuto */}
       <main className="flex-1 px-4 py-8 md:py-12 max-w-7xl mx-auto w-full flex flex-col justify-center">
         {showAdmin ? (
-          <AdminPanel
-            config={config}
-            onSaveConfig={handleSaveConfig}
-            onClose={() => setShowAdmin(false)}
-          />
+          !isAdminAuthenticated ? (
+            <AdminPasswordForm 
+              onSuccess={() => setIsAdminAuthenticated(true)}
+              onClose={() => setShowAdmin(false)}
+            />
+          ) : (
+            <AdminPanel
+              config={config}
+              onSaveConfig={handleSaveConfig}
+              onClose={() => {
+                setShowAdmin(false);
+                setIsAdminAuthenticated(false);
+              }}
+            />
+          )
         ) : isSubmitted ? (
           <SuccessScreen onReset={handleResetForm} />
         ) : (
@@ -144,7 +169,7 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 px-6 py-6 text-center text-xs text-slate-400">
         <div className="max-w-7xl mx-auto space-y-2">
-          <p>© 2026 A.S.D. Football Club 2026. Tutti i diritti riservati.</p>
+          <p>© 2026 S.S.D. Cynthia 1920. Tutti i diritti riservati.</p>
           <p className="text-[10px] text-slate-400 leading-normal max-w-lg mx-auto">
             In conformità con le disposizioni FIGC, LND e il Regolamento Generale sulla Protezione dei Dati (GDPR). Tutti i caricamenti di documenti d'identità e certificati medici sono trattati in modo sicuro e cifrati per la salvaguardia della privacy dei tesserati.
           </p>

@@ -133,7 +133,7 @@ export default function FileUpload({
           onClick={() => fileInputRef.current?.click()}
           className={`relative border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all duration-200 flex flex-col items-center justify-center min-h-[140px]
             ${isDragging 
-              ? "border-emerald-500 bg-emerald-50/50" 
+              ? "border-cynthia-blue-500 bg-cynthia-blue-50/50" 
               : "border-slate-300 hover:border-slate-400 bg-slate-50/50 hover:bg-slate-50"
             }
             ${(error || localError) ? "border-red-300 bg-red-50/20" : ""}
@@ -151,20 +151,20 @@ export default function FileUpload({
             <Upload className="w-6 h-6 text-slate-500" />
           </div>
           <span className="text-sm font-medium text-slate-700">
-            Trascina qui il file oppure <span className="text-emerald-600 hover:text-emerald-700 underline font-semibold">sfoglia</span>
+            Trascina qui il file oppure <span className="text-cynthia-blue-600 hover:text-cynthia-blue-700 underline font-semibold">sfoglia</span>
           </span>
           <span className="text-xs text-slate-400 mt-1">
             Formati supportati: PDF, JPG, PNG (Max {maxSizeMB}MB)
           </span>
         </div>
       ) : (
-        <div className="relative border border-slate-200 rounded-xl p-4 bg-emerald-50/20 flex items-center justify-between gap-4 animate-fade-in">
+        <div className="relative border border-slate-200 rounded-xl p-4 bg-cynthia-blue-50/10 flex items-center justify-between gap-4 animate-fade-in">
           <div className="flex items-center gap-3 overflow-hidden">
-            <div className="p-2.5 bg-emerald-100/70 rounded-lg text-emerald-700 shrink-0">
+            <div className="p-2.5 bg-cynthia-blue-100/70 rounded-lg text-cynthia-blue-700 shrink-0">
               {isImage ? (
-                <Image className="w-5 h-5 text-emerald-700" />
+                <Image className="w-5 h-5 text-cynthia-blue-700" />
               ) : (
-                <FileText className="w-5 h-5 text-emerald-700" />
+                <FileText className="w-5 h-5 text-cynthia-blue-700" />
               )}
             </div>
             <div className="text-left overflow-hidden">
@@ -178,7 +178,7 @@ export default function FileUpload({
           </div>
           
           <div className="flex items-center gap-2">
-            <span className="flex items-center text-xs font-semibold text-emerald-700 bg-emerald-100/50 px-2 py-1 rounded-full gap-1">
+            <span className="flex items-center text-xs font-semibold text-cynthia-blue-700 bg-cynthia-blue-100/50 px-2 py-1 rounded-full gap-1">
               <CheckCircle2 className="w-3.5 h-3.5" />
               Caricato
             </span>

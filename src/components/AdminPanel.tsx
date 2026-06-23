@@ -56,7 +56,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
       {/* Header */}
       <div className="bg-slate-900 px-6 py-5 text-white flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-emerald-500/10 rounded-xl text-emerald-400 border border-emerald-500/20">
+          <div className="p-2 bg-cynthia-blue-500/10 rounded-xl text-cynthia-blue-400 border border-cynthia-blue-500/20">
             <Settings2 className="w-6 h-6" />
           </div>
           <div>
@@ -78,7 +78,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
           <div className="space-y-4">
             <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
-              <CloudLightning className="w-4 h-4 text-emerald-600" />
+              <CloudLightning className="w-4 h-4 text-cynthia-blue-600" />
               Stato Connessione
             </h3>
             
@@ -92,7 +92,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
                   placeholder="https://script.google.com/macros/s/.../exec"
                   value={appsScriptUrl}
                   onChange={(e) => setAppsScriptUrl(e.target.value)}
-                  className="flex-1 px-3 py-2 text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+                  className="flex-1 px-3 py-2 text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cynthia-blue-500/20 focus:border-cynthia-blue-500"
                   id="apps-script-url-input"
                 />
               </div>
@@ -101,13 +101,13 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
             <div className="flex items-center gap-2 pt-2">
               <button
                 onClick={handleSave}
-                className="flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition-colors shadow-sm"
+                className="flex items-center gap-1.5 px-4 py-2 bg-cynthia-blue-600 hover:bg-cynthia-blue-700 text-white text-xs font-semibold rounded-lg transition-colors shadow-sm"
               >
                 <Save className="w-3.5 h-3.5" />
                 {saveSuccess ? "Salvato!" : "Salva Configurazione"}
               </button>
               {saveSuccess && (
-                <span className="text-xs text-emerald-600 font-medium animate-pulse">
+                <span className="text-xs text-cynthia-blue-600 font-medium animate-pulse">
                   Configurazione aggiornata!
                 </span>
               )}
@@ -117,7 +117,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
           <div className="space-y-4 border-t md:border-t-0 md:border-l border-slate-200 pt-4 md:pt-0 md:pl-6 flex flex-col justify-between">
             <div>
               <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
-                <Play className="w-4 h-4 text-emerald-600" />
+                <Play className="w-4 h-4 text-cynthia-blue-600" />
                 Modalità di Invio
               </h3>
               <p className="text-xs text-slate-500 mt-1">
@@ -136,7 +136,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
                   onSaveConfig({ appsScriptUrl, useSimulation: !useSimulation });
                 }}
                 className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none
-                  ${useSimulation ? "bg-emerald-500" : "bg-slate-300"}
+                  ${useSimulation ? "bg-cynthia-blue-500" : "bg-slate-300"}
                 `}
                 id="toggle-simulation"
               >
@@ -153,7 +153,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
         {/* Istruzioni Step by Step */}
         <div className="space-y-4">
           <h3 className="text-base font-bold text-slate-800 flex items-center gap-2">
-            <HelpCircle className="w-5 h-5 text-emerald-600" />
+            <HelpCircle className="w-5 h-5 text-cynthia-blue-600" />
             Come configurare il tuo Google Sheets e Google Drive in 5 minuti:
           </h3>
           
@@ -179,7 +179,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
               <p className="text-[11px] text-slate-500 leading-relaxed">Clicca <strong>Nuova implementazione</strong> &rarr; <strong>Applicazione web</strong>.</p>
             </div>
             <div className="border border-slate-200 rounded-xl p-4 bg-white shadow-sm space-y-2">
-              <div className="w-7 h-7 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center font-bold text-xs">5</div>
+              <div className="w-7 h-7 bg-cynthia-blue-100 text-cynthia-blue-800 rounded-full flex items-center justify-center font-bold text-xs">5</div>
               <h4 className="text-xs font-bold text-slate-800">Copia l'URL</h4>
               <p className="text-[11px] text-slate-500 leading-relaxed">Seleziona <em>"Chiunque"</em> come accesso, implementa e copia l'URL qui sopra.</p>
             </div>
@@ -190,7 +190,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
-              <FileCode className="w-4 h-4 text-emerald-600" />
+              <FileCode className="w-4 h-4 text-cynthia-blue-600" />
               Codice Google Apps Script
             </h3>
             <button
@@ -199,7 +199,7 @@ export default function AdminPanel({ config, onSaveConfig, onClose }: AdminPanel
             >
               {copied ? (
                 <>
-                  <Check className="w-3.5 h-3.5 text-emerald-600" />
+                  <Check className="w-3.5 h-3.5 text-cynthia-blue-600" />
                   Copiato!
                 </>
               ) : (

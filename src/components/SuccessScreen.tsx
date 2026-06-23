@@ -20,9 +20,9 @@ export default function SuccessScreen({ onReset }: SuccessScreenProps) {
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="p-4 bg-emerald-50 rounded-full border border-emerald-100 text-emerald-600"
+          className="p-4 bg-cynthia-blue-50 rounded-full border border-cynthia-blue-100 text-cynthia-blue-600"
         >
-          <CheckCircle2 className="w-16 h-16 text-emerald-500" />
+          <CheckCircle2 className="w-16 h-16 text-cynthia-blue-500" />
         </motion.div>
       </div>
 
@@ -31,7 +31,7 @@ export default function SuccessScreen({ onReset }: SuccessScreenProps) {
         <h1 className="text-2xl md:text-3xl font-bold font-display text-slate-800 tracking-tight">
           Tesseramento Ricevuto!
         </h1>
-        <p className="text-emerald-700 font-semibold bg-emerald-50 border border-emerald-100/50 px-4 py-2 rounded-xl inline-block text-sm">
+        <p className="text-cynthia-blue-700 font-semibold bg-cynthia-blue-50 border border-cynthia-blue-100/50 px-4 py-2 rounded-xl inline-block text-sm">
           Dati inviati con successo alla segreteria. Grazie per la collaborazione!
         </p>
         <p className="text-xs text-slate-500 leading-relaxed max-w-md mx-auto pt-2">
@@ -42,20 +42,20 @@ export default function SuccessScreen({ onReset }: SuccessScreenProps) {
       {/* Dettagli processo successivo */}
       <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 text-left space-y-3 text-xs max-w-md mx-auto">
         <h4 className="font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
-          <Users className="w-4 h-4 text-emerald-600" />
+          <Users className="w-4 h-4 text-cynthia-gold-600" />
           Prossimi Passaggi:
         </h4>
         <ul className="space-y-2 text-slate-600">
           <li className="flex gap-2">
-            <span className="font-bold text-emerald-600">1.</span>
+            <span className="font-bold text-cynthia-blue-600">1.</span>
             <span>La segreteria scarica e archivia i tuoi documenti su <strong>Google Drive</strong>.</span>
           </li>
           <li className="flex gap-2">
-            <span className="font-bold text-emerald-600">2.</span>
+            <span className="font-bold text-cynthia-blue-600">2.</span>
             <span>I tuoi dati vengono iscritti nel registro di <strong>Google Sheets</strong> per la ratifica del Consiglio Direttivo.</span>
           </li>
           <li className="flex gap-2">
-            <span className="font-bold text-emerald-600">3.</span>
+            <span className="font-bold text-cynthia-blue-600">3.</span>
             <span>Inoltro formale sul portale federale FIGC e attivazione della copertura assicurativa sportiva.</span>
           </li>
         </ul>

@@ -4,4 +4,33 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
+  
+  --color-cynthia-blue-50: #f0f6ff;
+  --color-cynthia-blue-100: #e0edff;
+  --color-cynthia-blue-200: #bdd7ff;
+  --color-cynthia-blue-400: #60a5fa;
+  --color-cynthia-blue-500: #2563eb;
+  --color-cynthia-blue-600: #1d4ed8;
+  --color-cynthia-blue-700: #1e40af;
+  --color-cynthia-blue-800: #1e3a8a;
+  --color-cynthia-blue-950: #172554;
+  
+  --color-cynthia-gold-50: #faf8f0;
+  --color-cynthia-gold-100: #f4edd4;
+  --color-cynthia-gold-200: #e8dca9;
+  --color-cynthia-gold-500: #c5a85c;
+  --color-cynthia-gold-600: #af924a;
+  --color-cynthia-gold-700: #937637;
+  --color-cynthia-gold-800: #745b2b;
+
+  /* Map emerald utility classes to cynthia-blue for backward compatibility and clean universal theming */
+  --color-emerald-50: var(--color-cynthia-blue-50);
+  --color-emerald-100: var(--color-cynthia-blue-100);
+  --color-emerald-200: var(--color-cynthia-blue-200);
+  --color-emerald-400: var(--color-cynthia-blue-400);
+  --color-emerald-500: var(--color-cynthia-blue-500);
+  --color-emerald-600: var(--color-cynthia-blue-600);
+  --color-emerald-700: var(--color-cynthia-blue-700);
+  --color-emerald-800: var(--color-cynthia-blue-800);
+  --color-emerald-950: var(--color-cynthia-blue-950);
 }
